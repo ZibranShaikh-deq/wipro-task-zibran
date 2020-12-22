@@ -1,0 +1,26 @@
+.parent-container {
+	overflow: auto;
+	margin-top: 100px !important;
+	width: 50%;
+	margin: auto;
+	height: 300px;
+}
+
+.text-block {
+	font-weight: 600;
+}
+
+.option-div{
+	z-index: 99999999;
+	border: 1px solid #ced4da;
+	background-color: rgb(127 137 150 / 8%);
+}
+
+.option{
+	cursor: pointer;
+    margin-left: 10px;
+}
+
+.highlight-color{
+	color: #007bff;
+}
