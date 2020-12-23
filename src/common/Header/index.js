@@ -8,7 +8,7 @@ const Header = () => {
   //Return JSX for Header
   return (
     <Navbar bg="light" expand="lg" className="header">
-      <Navbar.Brand href="/">Search is in our DNA</Navbar.Brand>
+      <Navbar.Brand>Search is in our DNA</Navbar.Brand>
     </Navbar>
   )
 }
