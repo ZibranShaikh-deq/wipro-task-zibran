@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e4fc663ee9abe6c650be73659769192",
+    "revision": "83163d004976108831d9e3265630ada0",
     "url": "/wipro-task-zibran/index.html"
   },
   {
-    "revision": "93e67daadac0f60cd515",
+    "revision": "d6b9f45695807e169dfc",
     "url": "/wipro-task-zibran/static/css/main.5d352059.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wipro-task-zibran/static/js/2.9f5295cd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "93e67daadac0f60cd515",
-    "url": "/wipro-task-zibran/static/js/main.0194ef3a.chunk.js"
+    "revision": "d6b9f45695807e169dfc",
+    "url": "/wipro-task-zibran/static/js/main.484f07c4.chunk.js"
   },
   {
     "revision": "023cccde26f74e76d213",
