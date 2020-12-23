@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "wipro-task-zibran/static/css/main.491886b5.chunk.css",
-    "main.js": "wipro-task-zibran/static/js/main.7a61b8c9.chunk.js",
-    "main.js.map": "wipro-task-zibran/static/js/main.7a61b8c9.chunk.js.map",
-    "runtime-main.js": "wipro-task-zibran/static/js/runtime-main.7135a993.js",
-    "runtime-main.js.map": "wipro-task-zibran/static/js/runtime-main.7135a993.js.map",
-    "static/js/2.dd8d2ff4.chunk.js": "wipro-task-zibran/static/js/2.dd8d2ff4.chunk.js",
-    "static/js/2.dd8d2ff4.chunk.js.map": "wipro-task-zibran/static/js/2.dd8d2ff4.chunk.js.map",
-    "index.html": "wipro-task-zibran/index.html",
-    "precache-manifest.925d2ae89f2922512d155cacecedb1f0.js": "wipro-task-zibran/precache-manifest.925d2ae89f2922512d155cacecedb1f0.js",
-    "service-worker.js": "wipro-task-zibran/service-worker.js",
-    "static/css/main.491886b5.chunk.css.map": "wipro-task-zibran/static/css/main.491886b5.chunk.css.map",
-    "static/js/2.dd8d2ff4.chunk.js.LICENSE.txt": "wipro-task-zibran/static/js/2.dd8d2ff4.chunk.js.LICENSE.txt"
+    "main.css": "/wipro-task-zibran/static/css/main.491886b5.chunk.css",
+    "main.js": "/wipro-task-zibran/static/js/main.afea3f17.chunk.js",
+    "main.js.map": "/wipro-task-zibran/static/js/main.afea3f17.chunk.js.map",
+    "runtime-main.js": "/wipro-task-zibran/static/js/runtime-main.1595c500.js",
+    "runtime-main.js.map": "/wipro-task-zibran/static/js/runtime-main.1595c500.js.map",
+    "static/js/2.0296e816.chunk.js": "/wipro-task-zibran/static/js/2.0296e816.chunk.js",
+    "static/js/2.0296e816.chunk.js.map": "/wipro-task-zibran/static/js/2.0296e816.chunk.js.map",
+    "index.html": "/wipro-task-zibran/index.html",
+    "precache-manifest.49727f7896d663814ef4bd79411e85a7.js": "/wipro-task-zibran/precache-manifest.49727f7896d663814ef4bd79411e85a7.js",
+    "service-worker.js": "/wipro-task-zibran/service-worker.js",
+    "static/css/main.491886b5.chunk.css.map": "/wipro-task-zibran/static/css/main.491886b5.chunk.css.map",
+    "static/js/2.0296e816.chunk.js.LICENSE.txt": "/wipro-task-zibran/static/js/2.0296e816.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7135a993.js",
-    "static/js/2.dd8d2ff4.chunk.js",
+    "static/js/runtime-main.1595c500.js",
+    "static/js/2.0296e816.chunk.js",
     "static/css/main.491886b5.chunk.css",
-    "static/js/main.7a61b8c9.chunk.js"
+    "static/js/main.afea3f17.chunk.js"
   ]
 }
