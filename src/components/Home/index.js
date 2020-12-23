@@ -5,6 +5,7 @@ import SearchBox from 'common/SearchBox'
 
 import './index.css'
 
+//Home component for Rendering the SearchBox with Layout.
 const Home = () => {
   return (
     <Layout>

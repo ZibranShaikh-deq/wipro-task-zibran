@@ -1,3 +1,4 @@
+//Commonly Used Text
 const Texts = {
   SEARCH: 'Search',
   PLACEHOLDER: 'Enter text for search',

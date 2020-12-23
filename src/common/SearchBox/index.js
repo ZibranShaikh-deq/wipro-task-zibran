@@ -6,6 +6,7 @@ import { getSuggestions } from "service/api"
 
 import './index.css'
 
+//Component For Resuable Search Box
 const Search = () => {
   const [ suggestions, setSuggestions ] = useState([])
   const [ value, setValue ] = useState("")
@@ -13,6 +14,7 @@ const Search = () => {
   const inputRef = useRef()
   const node = useRef();
   
+  //Function For Handle Click Out of Div Event
   const handleClick = e => {
     if (!node.current.contains(e.target)) {
       console.log("outside click")
@@ -20,6 +22,7 @@ const Search = () => {
     }
   };
 
+  //Hooks For adding Mouse Event
   useEffect(() => {
     // add when mounted
       document.addEventListener("mousedown", handleClick);
@@ -29,14 +32,17 @@ const Search = () => {
     };
   }, []);
 
-  let searchValueArray = value.split(" ")
+  //Variables for value which is used in component. 
+  const searchValueArray = value.split(" ")
   const lastWord = searchValueArray[searchValueArray.length - 1]
 
-  const handleInputChange = (value) => {
-    setValue(value)
-    handleOnFocus(value)
+  //Function for hanlding change in the state.
+  const handleInputChange = (searchedValue) => {
+    setValue(searchedValue)
+    handleOnFocus(searchedValue)
   }
   
+  //Function for handling the onclick event of the options.
   const handleOnClick = (item) => {
     let searchValueArray = value.split(" ")
     searchValueArray[searchValueArray.length - 1] = item
@@ -46,8 +52,9 @@ const Search = () => {
     inputRef.current.focus()
   }
 
-  const handleOnFocus = async (value) => {
-    const searchValueArray = value.split(" ")
+  //Function for handle the focus event for input box.
+  const handleOnFocus = async (searchedValue) => {
+    const searchValueArray = searchedValue.split(" ")
     const options = await getSuggestions(searchValueArray[searchValueArray.length - 1])
     if(options && options.length > 0){
       setSuggestions(options)
@@ -55,9 +62,9 @@ const Search = () => {
     }
   }
 
+  //Function For render the Suggestions/Options
   const renderOptions = () => {
     if(showOptions && suggestions && suggestions.length > 0){
-      // const searchValueArray = value.split(" ")
       return (
         <div className="option-div">
           {suggestions.map(item => {
@@ -78,6 +85,7 @@ const Search = () => {
     return null
   }
 
+  //Function For render the Custom Search Box.
   const renderSearchBox = () => {
     return (
       <Form.Group>
@@ -99,6 +107,7 @@ const Search = () => {
     )
   }
 
+  //Return the JSX of SerchBox.
   return (
     <div className="parent-container">
 			<Form >

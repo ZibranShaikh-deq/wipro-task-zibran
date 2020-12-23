@@ -4,6 +4,7 @@ import { Route, Redirect, Switch } from 'react-router-dom'
 import HomeContainer from '../Home'
 import { APP_ROUTES } from "utils/enum"
 
+//App Component For Routing.
 const App = () => {
   return (
     <Fragment>

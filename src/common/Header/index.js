@@ -3,7 +3,9 @@ import { Navbar } from 'react-bootstrap'
 
 import './header.css'
 
+//Component for Common Header
 const Header = () => {
+  //Return JSX for Header
   return (
     <Navbar bg="light" expand="lg" className="header">
       <Navbar.Brand href="/home">Search is in our DNA</Navbar.Brand>

@@ -2,6 +2,7 @@ import React from 'react'
 
 import './footer.css'
 
+//Component for Common Footer
 const Footer = (props) => (
   <footer className="app-footer" >
   <div>
