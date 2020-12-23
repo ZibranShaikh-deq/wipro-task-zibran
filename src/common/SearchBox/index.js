@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 
 import Texts from 'constants/staticText'
@@ -11,6 +11,26 @@ const Search = () => {
   const [ value, setValue ] = useState("")
   const [ showOptions, setShowOptions ] = useState(false)
   const inputRef = useRef()
+  const node = useRef();
+  
+  const handleClick = e => {
+    if (!node.current.contains(e.target)) {
+      console.log("outside click")
+      setShowOptions(false)
+    }
+  };
+
+  useEffect(() => {
+    // add when mounted
+      document.addEventListener("mousedown", handleClick);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+  let searchValueArray = value.split(" ")
+  const lastWord = searchValueArray[searchValueArray.length - 1]
 
   const handleInputChange = (value) => {
     setValue(value)
@@ -37,14 +57,14 @@ const Search = () => {
 
   const renderOptions = () => {
     if(showOptions && suggestions && suggestions.length > 0){
-      const searchValueArray = value.split(" ")
+      // const searchValueArray = value.split(" ")
       return (
         <div className="option-div">
           {suggestions.map(item => {
               return (
                 <option 
                   key={item}
-                  className={`option ${item === searchValueArray[searchValueArray.length - 1] ? "highlight-color" : ""}`} 
+                  className={`option ${item === lastWord ? "highlight-color" : ""}`} 
                   onClick={() => handleOnClick(item)}
                 >
                   {item}
@@ -62,18 +82,19 @@ const Search = () => {
     return (
       <Form.Group>
         <Form.Label>{Texts.SEARCH}</Form.Label>
-        <Form.Control 
-          ref={inputRef}
-          type="text" 
-          autoComplete="off"
-          placeholder={Texts.PLACEHOLDER}
-          onChange={(event) => handleInputChange(event.target.value)}
-          value={value}
-          // onBlur={() => setShowOptions(false)}
-          onFocus={() => !value && handleOnFocus("")}
-        >
-        </Form.Control>
-        {renderOptions()}
+        <div ref={node}>
+          <Form.Control 
+            ref={inputRef}
+            type="text" 
+            autoComplete="off"
+            placeholder={Texts.PLACEHOLDER}
+            onChange={(event) => handleInputChange(event.target.value)}
+            value={value}
+            onFocus={() => handleOnFocus(lastWord)}
+          >
+          </Form.Control>
+          {renderOptions()}
+        </div>
       </Form.Group>
     )
   }
