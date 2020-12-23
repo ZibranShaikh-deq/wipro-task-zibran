@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/wipro-task-zibran/precache-manifest.5859cb0c3b87b03339c6d596e45ad256.js"
+  "/wipro-task-zibran/precache-manifest.b3469df0f4a377824184e7ea731649ea.js"
 );
 
 self.addEventListener('message', (event) => {
