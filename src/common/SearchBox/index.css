@@ -12,9 +12,13 @@
 	background-color: rgb(127 137 150 / 8%);
 }
 
+.active-option {
+	background-color: #c5ffff;
+}
+
 .option{
 	cursor: pointer;
-    margin-left: 10px;
+	padding-left: 10px;
 }
 
 .highlight-color{
