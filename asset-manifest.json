@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/wipro-task-zibran/static/css/main.491886b5.chunk.css",
-    "main.js": "/wipro-task-zibran/static/js/main.afea3f17.chunk.js",
-    "main.js.map": "/wipro-task-zibran/static/js/main.afea3f17.chunk.js.map",
+    "main.js": "/wipro-task-zibran/static/js/main.c8b99d49.chunk.js",
+    "main.js.map": "/wipro-task-zibran/static/js/main.c8b99d49.chunk.js.map",
     "runtime-main.js": "/wipro-task-zibran/static/js/runtime-main.1595c500.js",
     "runtime-main.js.map": "/wipro-task-zibran/static/js/runtime-main.1595c500.js.map",
-    "static/js/2.0296e816.chunk.js": "/wipro-task-zibran/static/js/2.0296e816.chunk.js",
-    "static/js/2.0296e816.chunk.js.map": "/wipro-task-zibran/static/js/2.0296e816.chunk.js.map",
+    "static/js/2.fd8e3d69.chunk.js": "/wipro-task-zibran/static/js/2.fd8e3d69.chunk.js",
+    "static/js/2.fd8e3d69.chunk.js.map": "/wipro-task-zibran/static/js/2.fd8e3d69.chunk.js.map",
     "index.html": "/wipro-task-zibran/index.html",
-    "precache-manifest.49727f7896d663814ef4bd79411e85a7.js": "/wipro-task-zibran/precache-manifest.49727f7896d663814ef4bd79411e85a7.js",
+    "precache-manifest.789b29a5a25ab793b0e16ab74427eeb2.js": "/wipro-task-zibran/precache-manifest.789b29a5a25ab793b0e16ab74427eeb2.js",
     "service-worker.js": "/wipro-task-zibran/service-worker.js",
     "static/css/main.491886b5.chunk.css.map": "/wipro-task-zibran/static/css/main.491886b5.chunk.css.map",
-    "static/js/2.0296e816.chunk.js.LICENSE.txt": "/wipro-task-zibran/static/js/2.0296e816.chunk.js.LICENSE.txt"
+    "static/js/2.fd8e3d69.chunk.js.LICENSE.txt": "/wipro-task-zibran/static/js/2.fd8e3d69.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1595c500.js",
-    "static/js/2.0296e816.chunk.js",
+    "static/js/2.fd8e3d69.chunk.js",
     "static/css/main.491886b5.chunk.css",
-    "static/js/main.afea3f17.chunk.js"
+    "static/js/main.c8b99d49.chunk.js"
   ]
 }
