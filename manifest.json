@@ -1,0 +1,17 @@
+{
+  "short_name": "Search is in our DNA",
+  "name": "Welcome to Search is in our DNA",
+  "start_url": "/",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#6610f2",
+  "background_color": "#20c997",
+  "gcm_sender_id": "103953800507",
+  "icons": [
+    {
+      "src": "images/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ]
+}
