@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Form } from 'react-bootstrap'
 
 import Texts from 'constants/staticText'
@@ -51,9 +51,9 @@ const Search = () => {
       }
     }
   }
-
+  
   //Debounce On change handler  
-  const debouncedInputChange = debounce(handleOnFocus, 500)
+  const debouncedInputChange = useCallback(debounce(handleOnFocus, 500), [])
 
   //Function for hanlding change in the state.
   const handleInputChange = (event) => {

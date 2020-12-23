@@ -1,17 +1,15 @@
 import React, { Fragment } from 'react'
-import { Route, Redirect, Switch } from 'react-router-dom'
 
-import HomeContainer from '../Home'
-import { APP_ROUTES } from "utils/enum"
+import Layout from 'common/Layout'
+import SearchBox from 'common/SearchBox'
 
-//App Component For Routing.
+//App Component.
 const App = () => {
   return (
     <Fragment>
-      <Switch>
-        <Redirect exact from={APP_ROUTES.ROOT} to={APP_ROUTES.HOME} />
-        <Route exact path={APP_ROUTES.HOME} component={HomeContainer} />
-      </Switch>
+      <Layout>
+        <SearchBox />
+      </Layout>
     </Fragment>
   )
 }
