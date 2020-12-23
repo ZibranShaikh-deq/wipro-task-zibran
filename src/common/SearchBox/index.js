@@ -40,8 +40,7 @@ const SearchBox = () => {
   
   // Function for handle the focus event for input box.
   const handleOnFocus = async (searchedValue) => {
-    const searchValueArray = searchedValue.split(" ")
-    const searchedText = searchValueArray[searchValueArray.length - 1]
+    const searchedText = searchedValue.split(" ").pop()
     if(searchedText){
       try {
         const options = await getSuggestions(searchedText)
@@ -60,25 +59,30 @@ const SearchBox = () => {
   // Function for hanlding change in the state.
   const handleInputChange = (event) => {
     event.preventDefault()
+
     const searchedValue = event.target.value
+
     setValue(searchedValue)
-    let latestSearchValueArray = searchedValue.split(" ")
-    if(lastWord !== latestSearchValueArray[latestSearchValueArray.length - 1]){
+    const lastElementOfSearchedValue = searchedValue.split(" ").pop()
+    
+    if (lastWord !== lastElementOfSearchedValue) {
       debouncedInputChange(searchedValue)
-    }else{
+    } else{
       setShowOptions(false)
     }
   }
   
   // Function for handling the onclick event of the options.
   const handleOnClick = (item) => {
-    let searchValueArray = value.split(" ")
-    if(searchValueArray || item){
+    const searchValueArray = value.split(" ")
+
+    if(searchValueArray || item) {
       searchValueArray[searchValueArray.length - 1] = item
-      let finalValue = searchValueArray.toString().replace(/,/g, " ")
+        
       setShowOptions(false)
-      setValue(finalValue+" ")
-      setActiveOptionIndex(null)
+      setValue(searchValueArray.join(' ').concat(' '))
+      setActiveOptionIndex(0)
+    
       inputRef.current.focus()
     }
   }
@@ -100,7 +104,9 @@ const SearchBox = () => {
         return;
       case 13:
         event.preventDefault()
-        handleOnClick(suggestions[activeOptionIndex])
+        if (showOptions) {
+          handleOnClick(suggestions[activeOptionIndex])
+        }
         return;
       default:
         return;
