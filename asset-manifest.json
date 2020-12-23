@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wipro-task-zibran/static/css/main.5d352059.chunk.css",
-    "main.js": "/wipro-task-zibran/static/js/main.484f07c4.chunk.js",
-    "main.js.map": "/wipro-task-zibran/static/js/main.484f07c4.chunk.js.map",
+    "main.js": "/wipro-task-zibran/static/js/main.8a4e1341.chunk.js",
+    "main.js.map": "/wipro-task-zibran/static/js/main.8a4e1341.chunk.js.map",
     "runtime-main.js": "/wipro-task-zibran/static/js/runtime-main.1595c500.js",
     "runtime-main.js.map": "/wipro-task-zibran/static/js/runtime-main.1595c500.js.map",
     "static/js/2.9f5295cd.chunk.js": "/wipro-task-zibran/static/js/2.9f5295cd.chunk.js",
     "static/js/2.9f5295cd.chunk.js.map": "/wipro-task-zibran/static/js/2.9f5295cd.chunk.js.map",
     "index.html": "/wipro-task-zibran/index.html",
-    "precache-manifest.9e91e70b2ee74d6f5ab15bd6f4d27914.js": "/wipro-task-zibran/precache-manifest.9e91e70b2ee74d6f5ab15bd6f4d27914.js",
+    "precache-manifest.2713c7feccba2b451f65f985ae693a54.js": "/wipro-task-zibran/precache-manifest.2713c7feccba2b451f65f985ae693a54.js",
     "service-worker.js": "/wipro-task-zibran/service-worker.js",
     "static/css/main.5d352059.chunk.css.map": "/wipro-task-zibran/static/css/main.5d352059.chunk.css.map",
     "static/js/2.9f5295cd.chunk.js.LICENSE.txt": "/wipro-task-zibran/static/js/2.9f5295cd.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.1595c500.js",
     "static/js/2.9f5295cd.chunk.js",
     "static/css/main.5d352059.chunk.css",
-    "static/js/main.484f07c4.chunk.js"
+    "static/js/main.8a4e1341.chunk.js"
   ]
 }
