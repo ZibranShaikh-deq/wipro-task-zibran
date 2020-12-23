@@ -6,10 +6,6 @@
 	height: 300px;
 }
 
-.text-block {
-	font-weight: 600;
-}
-
 .option-div{
 	z-index: 99999999;
 	border: 1px solid #ced4da;
