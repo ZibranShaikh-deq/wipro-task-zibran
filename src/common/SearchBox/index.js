@@ -17,7 +17,6 @@ const Search = () => {
   //Function For Handle Click Out of Div Event
   const handleClick = e => {
     if (!node.current.contains(e.target)) {
-      console.log("outside click")
       setShowOptions(false)
     }
   };
@@ -45,20 +44,24 @@ const Search = () => {
   //Function for handling the onclick event of the options.
   const handleOnClick = (item) => {
     let searchValueArray = value.split(" ")
-    searchValueArray[searchValueArray.length - 1] = item
-    let finalValue = searchValueArray.toString().replace(/,/g, " ")
-    setShowOptions(false)
-    setValue(finalValue+" ")
-    inputRef.current.focus()
+    if(searchValueArray){
+      searchValueArray[searchValueArray.length - 1] = item
+      let finalValue = searchValueArray.toString().replace(/,/g, " ")
+      setShowOptions(false)
+      setValue(finalValue+" ")
+      inputRef.current.focus()
+    }
   }
 
   //Function for handle the focus event for input box.
   const handleOnFocus = async (searchedValue) => {
     const searchValueArray = searchedValue.split(" ")
-    const options = await getSuggestions(searchValueArray[searchValueArray.length - 1])
-    if(options && options.length > 0){
-      setSuggestions(options)
-      setShowOptions(true)
+    if(searchValueArray){
+      const options = await getSuggestions(searchValueArray[searchValueArray.length - 1])
+      if(options && options.length > 0){
+        setSuggestions(options)
+        setShowOptions(true)
+      }
     }
   }
 
@@ -68,15 +71,18 @@ const Search = () => {
       return (
         <div className="option-div">
           {suggestions.map(item => {
-              return (
-                <option 
-                  key={item}
-                  className={`option ${item === lastWord ? "highlight-color" : ""}`} 
-                  onClick={() => handleOnClick(item)}
-                >
-                  {item}
-                </option>
-              )
+              if(item){
+                return (
+                  <option 
+                    key={item}
+                    className={`option ${item === lastWord ? "highlight-color" : ""}`} 
+                    onClick={() => handleOnClick(item)}
+                  >
+                    {item}
+                  </option>
+                )
+              }
+              return null
             })
           }
         </div>
@@ -98,7 +104,7 @@ const Search = () => {
             placeholder={Texts.PLACEHOLDER}
             onChange={(event) => handleInputChange(event.target.value)}
             value={value}
-            onFocus={() => handleOnFocus(lastWord)}
+            onFocus={() => !value && handleOnFocus("")}
           >
           </Form.Control>
           {renderOptions()}
