@@ -7,26 +7,26 @@ import { debounce } from "lodash";
 
 import './index.css'
 
-//Component For Resuable Search Box
-const Search = () => {
+// Component For Resuable Search Box
+const SearchBox = () => {
   const [ suggestions, setSuggestions ] = useState([])
   const [ value, setValue ] = useState("")
   const [ showOptions, setShowOptions ] = useState(false)
-  const [ activeOptionIndex, setActiveOptionIndex ] = useState(null)
+  const [ activeOptionIndex, setActiveOptionIndex ] = useState(0)
   
   const inputRef = useRef()
   const node = useRef();
 
-  //Function For Handle Click Out of Div Event
+  // Function For Handle Click Out of Div Event
   const handleClick = e => {
     if (!node.current.contains(e.target)) {
       setShowOptions(false)
     }
   };
 
-  //Hooks For adding Mouse Event
+  // Hooks For adding Mouse Event
   useEffect(() => {
-    // add when mounted
+    // Not manipulating the DOM, Listening to events.
       document.addEventListener("mousedown", handleClick);
     // return function to be called when unmounted
     return () => {
@@ -34,28 +34,30 @@ const Search = () => {
     };
   }, []);
 
-  //Variables for value which is used in component. 
+  // Variables for value which is used in component. 
   const searchValueArray = value.split(" ")
   const lastWord = searchValueArray[searchValueArray.length - 1]
   
-  //Function for handle the focus event for input box.
+  // Function for handle the focus event for input box.
   const handleOnFocus = async (searchedValue) => {
     const searchValueArray = searchedValue.split(" ")
-    if(searchValueArray){
-      const options = await getSuggestions(searchValueArray[searchValueArray.length - 1])
-      if(options && options.length > 0){
-        const filteredOptions = options.filter(item => item !== "")
-        setSuggestions(filteredOptions)
+    const searchedText = searchValueArray[searchValueArray.length - 1]
+    if(searchedText){
+      try {
+        const options = await getSuggestions(searchedText)
+        setSuggestions(options)
         setShowOptions(true)
-        setActiveOptionIndex(null)
+        setActiveOptionIndex(0)
+      } catch (error) {
+        console.error('Got error in receiving data:  ', error)
       }
     }
   }
   
-  //Debounce On change handler  
+  // Debounce On change handler  
   const debouncedInputChange = useCallback(debounce(handleOnFocus, 500), [])
 
-  //Function for hanlding change in the state.
+  // Function for hanlding change in the state.
   const handleInputChange = (event) => {
     event.preventDefault()
     const searchedValue = event.target.value
@@ -68,7 +70,7 @@ const Search = () => {
     }
   }
   
-  //Function for handling the onclick event of the options.
+  // Function for handling the onclick event of the options.
   const handleOnClick = (item) => {
     let searchValueArray = value.split(" ")
     if(searchValueArray || item){
@@ -81,14 +83,50 @@ const Search = () => {
     }
   }
 
-  //Function For render the Suggestions/Options
-  const renderOptions = () => {
-    if(showOptions && suggestions && suggestions.length > 0){
-      return (
-        <div className="option-div">
-          {suggestions.map((item, index) => {
-              if(item){
-                return (
+  // Function for handle Key press
+  const handleKeyPress = (event) => {
+    switch(event.keyCode){
+      case 38:
+        event.preventDefault()
+        if(activeOptionIndex > 0){
+          setActiveOptionIndex(activeOptionIndex - 1)
+        }
+        return;
+      case 40:
+        event.preventDefault()
+        if(activeOptionIndex < suggestions.length - 1){
+          setActiveOptionIndex(activeOptionIndex + 1)
+        }
+        return;
+      case 13:
+        event.preventDefault()
+        handleOnClick(suggestions[activeOptionIndex])
+        return;
+      default:
+        return;
+    }
+  }
+
+  //Return the JSX of SerchBox.
+  return (
+    <div className="parent-container">
+			<Form >
+        <Form.Group>
+          <Form.Label>{Texts.SEARCH}</Form.Label>
+          <div ref={node}>
+            <Form.Control 
+              ref={inputRef}
+              type="text" 
+              autoComplete="off"
+              placeholder={Texts.PLACEHOLDER}
+              onChange={handleInputChange}
+              value={value}
+              onKeyDown={handleKeyPress}
+            >
+            </Form.Control>
+            {showOptions && suggestions && suggestions.length > 0 && (
+              <div className="option-div">
+                {suggestions.map((item, index) => (
                   <option 
                     key={item}
                     className={`option ${item === lastWord ? "highlight-color" : ""} 
@@ -97,76 +135,16 @@ const Search = () => {
                   >
                     {item}
                   </option>
-                )
-              }
-              return null
-            })
-          }
-        </div>
-      )
-    } 
-    return null
-  }
-
-  //Function for handle Key press
-  const handleKeyPress = (event) => {
-    let activeIndex = activeOptionIndex === null ? 0 : activeOptionIndex
-    switch(event.keyCode){
-      case 38:
-        if(activeIndex !== -1){
-          --activeIndex
-          setActiveOptionIndex(activeIndex)
-        }
-        break;
-      case 40:
-        if(activeIndex < suggestions.length - 1){
-          activeIndex = activeOptionIndex === null ? activeIndex : ++activeIndex
-          setActiveOptionIndex(activeIndex)
-        }
-        break;
-      case 13:
-        event.preventDefault()
-        activeOptionIndex !== null && handleOnClick(suggestions[activeOptionIndex])
-        break;
-      default:
-        return;
-    }
-  }
-
-  //Function For render the Custom Search Box.
-  const renderSearchBox = () => {
-    return (
-      <Form.Group>
-        <Form.Label>{Texts.SEARCH}</Form.Label>
-        <div ref={node}>
-          <Form.Control 
-            ref={inputRef}
-            type="text" 
-            autoComplete="off"
-            placeholder={Texts.PLACEHOLDER}
-            onChange={handleInputChange}
-            value={value}
-            onFocus={() => !activeOptionIndex && !value && handleOnFocus("")}
-            onKeyDown={handleKeyPress}
-          >
-          </Form.Control>
-          {renderOptions()}
-        </div>
-      </Form.Group>
-    )
-  }
-
-  //Return the JSX of SerchBox.
-  return (
-    <div className="parent-container">
-			<Form >
-				{renderSearchBox()}
+                ))}
+              </div>
+            )}
+          </div>
+        </Form.Group>
 			</Form>
     </div>
   )
 }
 
-Search.propTypes = {
-}
+SearchBox.propTypes = {}
 
-export default Search
+export default SearchBox
